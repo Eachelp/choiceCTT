@@ -2,7 +2,7 @@
 #'
 #'
 #' @export
-table_T <- function(data, stat, group, items, digit = 0, level = TRUE, level_type) {
+table.T <- function(data, stat, group, items, digit = 0, level = TRUE, level_type) {
 
   sum_data <- calculate_sums(data = data, items = items)
 
