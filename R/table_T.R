@@ -2,7 +2,7 @@
 #'
 #'
 #' @export
-table_T <- function(data, stat, group, items, digit = 0, level = TRUE, level_type) {
+table_T <- function(data, stat, group, items, digit = 0, level = TRUE, smooth = FALSE, level_type) {
 
   sum_data <- calculate_sums(data = data, items = items)
 
@@ -44,6 +44,13 @@ table_T <- function(data, stat, group, items, digit = 0, level = TRUE, level_typ
     result_data[[t_var]] <- cround(T_calculate(score = data[[var]],
                                                mean = data[[mean_var]],
                                                sd = data[[sd_var]]), digit)
+    if(smooth){
+
+      ifelse(result_data[[t_var]] > 80, result_data[[t_var]] <- 80,
+             ifelse(result_data[[t_var]] < 20, result_data[[t_var]] <- 20,
+                result_data[[t_var]] <- result_data[[t_var]]))
+
+    }
 
     if(level){
       label_var <- paste0(var, "_level")
