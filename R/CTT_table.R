@@ -1,18 +1,18 @@
-# This is a simple function that makes a table based on Classical Test Theory (CTT).
-# In this table you can show descriptive statistics(average and standard deviation) of each items
-# and can show Difficulty and Discrimination(item total correlation)
-#
-# The Difficulty of CTT is same with average when item is dichotomous item.
-# But when item is polytomous item, the Difficulty is same with average/L {L is categorical(dichotomous is 1; 0/1)}
-#
-# Discrimination is item total correlation but in this function, each item doesn't containe total score
-# (when you calculate Discrimination of item 1 in 10 items test, the total score is sum score, from 2 to 9 items)
-#
-# Also This function can calculate Reliability(Cronbach'α)
-# However, it should be noted that Cronbach'α is not, strictly speaking, an index of reliability.
-# And in this table can show a "Deleted alpha", The Cronbach'α that increases when one item is removed.
-#
-# in the R round is
+#' This is a simple function that makes a table based on Classical Test Theory (CTT).
+#' In this table you can show descriptive statistics(average and standard deviation) of each items
+#' and can show Difficulty and Discrimination(item total correlation)
+#'
+#' The Difficulty of CTT is same with average when item is dichotomous item.
+#' But when item is polytomous item, the Difficulty is same with average/L {L is categorical(dichotomous is 1; 0/1)}
+#'
+#' Discrimination is item total correlation but in this function, each item doesn't containe total score
+#' (when you calculate Discrimination of item 1 in 10 items test, the total score is sum score, from 2 to 9 items)
+#'
+#' Also This function can calculate Reliability(Cronbach'α)
+#' However, it should be noted that Cronbach'α is not, strictly speaking, an index of reliability.
+#' And in this table can show a "Deleted alpha", The Cronbach'α that increases when one item is removed.
+#'
+#' in the R round is
 #' @export
 CTT_table <- function(data, categories = 0:7) {
 
