@@ -45,11 +45,9 @@ table_T <- function(data, stat, group, items, digit = 0, level = TRUE, smooth = 
                                                mean = data[[mean_var]],
                                                sd = data[[sd_var]]), digit)
     if(smooth){
-
       ifelse(result_data[[t_var]] > 80, result_data[[t_var]] <- 80,
              ifelse(result_data[[t_var]] < 20, result_data[[t_var]] <- 20,
                 result_data[[t_var]] <- result_data[[t_var]]))
-
     }
 
     if(level){
