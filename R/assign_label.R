@@ -1,3 +1,7 @@
+#'
+#'
+#'
+#' @export
 assign_label <- function(score, thresholds_df) {
   labels <- colnames(thresholds_df)
   for (label in labels) {

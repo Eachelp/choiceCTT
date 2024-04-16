@@ -1,3 +1,7 @@
+#'
+#'
+#'
+#' @export
 cround <- function(x, n) {
   vorz <- sign(x)
   z <- abs(x) * 10^n

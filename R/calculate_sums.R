@@ -1,3 +1,7 @@
+#'
+#'
+#'
+#' @export
 calculate_sums <- function(data, items) {
 
   result_data <- data.frame(matrix(nrow = nrow(data), ncol = ncol(items)))
