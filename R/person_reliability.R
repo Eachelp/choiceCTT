@@ -25,9 +25,9 @@ person_reliability <- function(data, variance_threshold = 0.1, relMax = NULL,
       if (length(non_na_row) == 0) return(0)  # Return 0 if the row is empty after removing NAs
       max(rle(non_na_row)$lengths)  # Calculate maximum consecutive run length
     }),
-    count_NA = apply(data, 1, function(row) sum(is.na(row) | row == "" | row == "NA")),
+    count_NA = apply(data_numeric, 1, function(row) sum(is.na(row) | row == "" | row == "NA")),
     Response_Count = if (!is.null(careless_items) && all(careless_items %in% names(data))) {
-      apply(data[, careless_items, drop = FALSE], 1, function(x) sum(x %in% careless_response, na.rm = TRUE))
+      apply(data_numeric[, careless_items, drop = FALSE], 1, function(x) sum(x %in% careless_response, na.rm = TRUE))
     } else rep(NA, nrow(data)),  # Return NA for all rows if careless_items are null or missing
     row.names = row.names(data)
   )
