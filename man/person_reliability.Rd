@@ -4,7 +4,14 @@
 \alias{person_reliability}
 \title{person reliability}
 \usage{
-person_reliability(data, variance_threshold = 0.1, relMax = NULL)
+person_reliability(
+  data,
+  variance_threshold = 0.1,
+  relMax = NULL,
+  careless_items = NULL,
+  careless_response = c(3, 4, 5),
+  careless_MAX = 2
+)
 }
 \description{
 person reliability
