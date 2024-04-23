@@ -83,10 +83,11 @@ CTT_table <- function(data, categories = 0:7) {
     }
   }
 
+  rownames(df) <- colnames(data)
+
   alpha <- coeff_alpha(data)
   sd_x <- sd(rowSums(data,na.rm = T))
   SE <- sd_x * sqrt(1 - alpha)
-
 
   list(ctt_table = df, alpha = alpha, se = SE)
 }
