@@ -6,7 +6,7 @@
 In this table you can show descriptive statistics(average and standard deviation) of each items
 and can show Difficulty and Discrimination(item total correlation)}
 \usage{
-CTT_table(data, categories = 0:7)
+CTT_table(data, categories = 1:5, Poly = FALSE, missing = "omit")
 }
 \description{
 The Difficulty of CTT is same with average when item is dichotomous item.
@@ -20,5 +20,5 @@ Also This function can calculate Reliability(Cronbach'α)
 However, it should be noted that Cronbach'α is not, strictly speaking, an index of reliability.
 And in this table can show a "Deleted alpha", The Cronbach'α that increases when one item is removed.
 
-in the R round is
+in the R cround is
 }
