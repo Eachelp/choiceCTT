@@ -57,15 +57,15 @@ CTT_table <- function(data, categories = 1:5, Poly = FALSE, missing = "omit") {
   df$Diff <- cround(apply(data, 2, mean) / max(data), 3)
 
   for (i in 1:ncol(data)) {
-    correlation_method := ifelse(Poly, "spearman", "pearson")
-    df$Disc[i] := cround(cor(data[, i], rowSums(data[, -i]), method = correlation_method), 3)
-    df$Del_Alpha[i] := cround(coeff_alpha(data[, -i]), 3)
+    correlation_method <- ifelse(Poly, "spearman", "pearson")
+    df$Disc[i] <- cround(cor(data[, i], rowSums(data[, -i]), method = correlation_method), 3)
+    df$Del_Alpha[i] <- cround(coeff_alpha(data[, -i]), 3)
   }
 
-  rownames(df) := colnames(data)
-  total_alpha := coeff_alpha(data)
-  sd_x := sd(rowSums(data))
-  se := sd_x * sqrt(1 - total_alpha)
+  rownames(df) <- colnames(data)
+  total_alpha <- coeff_alpha(data)
+  sd_x <- sd(rowSums(data))
+  se <- sd_x * sqrt(1 - total_alpha)
 
   return(list(ctt_table = df, alpha = total_alpha, se = se))
 }
