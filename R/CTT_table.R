@@ -28,7 +28,10 @@ CTT_table <- function(data, categories = 1:5, Poly = FALSE, missing = "omit") {
   if (missing == "omit") {
     data <- na.omit(data)
   } else if (missing == "zero") {
-    data[is.na(data)] <- 0
+    data <- data.frame(lapply(data, function(x) {
+      x[is.na(x)] <- 0
+      return(x)
+      }))
   }
 
   df <- data.frame(mean = numeric(ncol(data)),
