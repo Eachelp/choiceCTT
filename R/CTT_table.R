@@ -41,7 +41,7 @@ CTT_table <- function(data, categories = 1:5, Poly = FALSE, missing = "omit") {
                    Del_Alpha = numeric(ncol(data)))
 
   for (category in categories) {
-    df[[as.character(category)]] <- numeric(nrow(data))
+    df[[as.character(category)]] <- numeric(ncol(data))
   }
 
   coeff_alpha <- function(responses) {
