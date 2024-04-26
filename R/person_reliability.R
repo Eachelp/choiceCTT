@@ -61,7 +61,8 @@ person_reliability <- function(data, variance_threshold = 0.1, relMax = NULL,
   df$Mark_Run = ifelse(df$Max_Run >= relMax, "O", "")
 
   desired_order = c("Variance", "Max_Run", "Count_NA", "Count_Careless", "Mark_Careless", "Mark_Var", "Mark_Run")
-  df <- df[, desired_order]
+  existing_columns = intersect(desired_order, names(df))
+  df <- df[, existing_columns]
 
   return(df)
 }
