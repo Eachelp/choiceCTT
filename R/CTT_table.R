@@ -34,6 +34,18 @@ CTT_table <- function(data, categories = 1:5, Poly = FALSE, missing = "omit") {
       }))
   }
 
+  MatrixRow <- function(rowData, n) {
+    counts <- table(rowData)
+    result <- sapply(categories, function(category) {
+      if (as.character(category) %in% names(counts)) {
+        cround(counts[as.character(category)] / n, 3)
+      } else {
+        0
+      }
+    })
+    return(result)
+  }
+
   df <- data.frame(mean = numeric(ncol(data)),
                    sd = numeric(ncol(data)),
                    Diff = numeric(ncol(data)),
@@ -58,8 +70,17 @@ CTT_table <- function(data, categories = 1:5, Poly = FALSE, missing = "omit") {
 
   for (i in 1:ncol(data)) {
     correlation_method <- ifelse(Poly, "spearman", "pearson")
-    df$Disc[i] <- cround(cor(data[, i], rowSums(data[, -i]), method = correlation_method), 3)
+    df$Disc[i] <- cround(cor(data[, i], rowSums(data[, -i]),
+                             method = correlation_method), 3)
     df$Del_Alpha[i] <- cround(coeff_alpha(data[, -i]), 3)
+  }
+
+  for (i in 1:ncol(data)) {
+    if (length(table(data[, i])) == 0) {
+      df[i, 6:(5+length(categories))] <- rep(0, length(categories))
+    } else {
+      df[i, 6:(5+length(categories))] <- MatrixRow(data[, i], nrow(data))
+    }
   }
 
   rownames(df) <- colnames(data)
