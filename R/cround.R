@@ -1,5 +1,5 @@
-#'
-#'
+#' cround
+#'new round function
 #'
 #' @export
 cround <- function(x, n) {

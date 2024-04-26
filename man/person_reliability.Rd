@@ -2,7 +2,7 @@
 % Please edit documentation in R/person_reliability.R
 \name{person_reliability}
 \alias{person_reliability}
-\title{person reliability}
+\title{Person Reliability Analysis}
 \usage{
 person_reliability(
   data,
@@ -13,6 +13,22 @@ person_reliability(
   careless_MAX = 2
 )
 }
+\arguments{
+\item{data}{A data frame containing numeric response data.}
+
+\item{variance_threshold}{A numeric threshold below which a variance is considered too low, suggesting uniformity in responses that may indicate carelessness.}
+
+\item{relMax}{The maximum allowable consecutive identical responses, suggesting potential automatic or careless responding.}
+
+\item{careless_items}{A vector of column names to check for specific careless response patterns.}
+
+\item{careless_response}{A vector of values considered to be careless if repeated too frequently.}
+
+\item{careless_MAX}{The maximum number of careless responses allowed before flagging.}
+}
+\value{
+A data frame with original data analysis and additional flags for potential issues.
+}
 \description{
-person reliability
+This function analyzes individual responses for signs of inconsistency or carelessness by measuring the variance, maximum run length of consecutive identical responses, and counting missing or careless responses.
 }

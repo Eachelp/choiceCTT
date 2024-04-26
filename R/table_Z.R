@@ -1,8 +1,8 @@
-#' T-score table maker
+#' Z-score table maker
 #'
 #'
 #' @export
-table_T <- function(data, stat, group, items, digit = 0, level = TRUE, smooth = FALSE, level_type) {
+table_Z <- function(data, stat, group, items, digit = 0, level = TRUE, smooth = FALSE, level_type) {
 
   sum_data <- calculate_sums(data = data, items = items)
 
@@ -41,12 +41,12 @@ table_T <- function(data, stat, group, items, digit = 0, level = TRUE, smooth = 
     sd_var <- paste0(var, "_SD")
     t_var <- paste0(var, "_T")
 
-    result_data[[t_var]] <- cround(T_calculate(score = data[[var]],
+    result_data[[t_var]] <- cround(Z_calculate(score = data[[var]],
                                                mean = data[[mean_var]],
                                                sd = data[[sd_var]]), digit)
 
     if (smooth) {
-      result_data[[t_var]] <- pmax(20, pmin(result_data[[t_var]], 80))
+      result_data[[t_var]] <- pmax(-3, pmin(result_data[[t_var]], 3))
     }
 
     if(level){
