@@ -4,7 +4,7 @@
 \alias{dist_table}
 \title{Calculate distribution of categories per item and quantile grouping}
 \usage{
-dist_table(data, categories = 1:4, cutting = 4)
+dist_table(data, categories = 1:4, cutting = 4, digit)
 }
 \arguments{
 \item{data}{A data frame with each column representing an item with responses.}

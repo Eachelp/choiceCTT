@@ -9,7 +9,7 @@
 #' @param cutting The number of quantile groups to create.
 #' @return A list containing distribution tables for each item and a summary.
 #' @export
-dist_table <- function(data, categories = 1:4, cutting = 4) {
+dist_table <- function(data, categories = 1:4, cutting = 4, digit) {
   cut_start <- 1 / cutting
   probs <- seq(cut_start, 1, by = cut_start)
   df <- data.frame(data)
