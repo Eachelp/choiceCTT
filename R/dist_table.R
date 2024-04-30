@@ -18,7 +18,7 @@ dist_table <- function(data, categories = 1:4, cutting = 4, digit = 3) {
   sumdata <- rowSums(df)
 
   quantiles <- quantile(sumdata, probs = probs)
-  df_2$quantile_group <- cut(sumdata, breaks = c(-Inf, quantiles), include.lowest = TRUE, labels = probs)
+  df_2$quantile_group <- cut(sumdata, breaks = c(-Inf, quantiles), include.lowest = TRUE, labels = cround(probs,3))
 
   distribution_list <- list(summary = NULL)
   # Initialize the summary table with zeros
