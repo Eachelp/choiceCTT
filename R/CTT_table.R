@@ -14,11 +14,11 @@
 #'
 #' in the R cround is
 #' @export
-CTT_table <- function(data, categories = 1:5, Poly = FALSE, missing = "omit") {
+CTT_table <- function(data, Poly = FALSE, missing = "omit") {
 
-  if (!is.data.frame(data) && !is.matrix(data)) {
-    stop("Input data must be a data frame or a matrix.")
-  }
+  data <- as.data.frame(data)
+
+  categories <- sort(unique(unlist(data)))
 
   if (ncol(data) < 1 || nrow(data) < 1) {
     stop("Input data must have at least one row and one column.")

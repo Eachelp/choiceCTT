@@ -6,7 +6,7 @@
 In this table you can show descriptive statistics(average and standard deviation) of each items
 and can show Difficulty and Discrimination(item total correlation)}
 \usage{
-CTT_table(data, categories = 1:5, Poly = FALSE, missing = "omit")
+CTT_table(data, Poly = FALSE, missing = "omit")
 }
 \description{
 The Difficulty of CTT is same with average when item is dichotomous item.
