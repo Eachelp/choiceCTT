@@ -19,6 +19,4 @@ Discrimination is item total correlation but in this function, each item doesn't
 Also This function can calculate Reliability(Cronbach'α)
 However, it should be noted that Cronbach'α is not, strictly speaking, an index of reliability.
 And in this table can show a "Deleted alpha", The Cronbach'α that increases when one item is removed.
-
-in the R cround is
 }

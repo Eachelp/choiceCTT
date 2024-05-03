@@ -12,7 +12,7 @@
 #' However, it should be noted that Cronbach'α is not, strictly speaking, an index of reliability.
 #' And in this table can show a "Deleted alpha", The Cronbach'α that increases when one item is removed.
 #'
-#' in the R cround is
+#
 #' @export
 CTT_table <- function(data, Poly = FALSE, missing = "omit") {
 
@@ -66,7 +66,14 @@ CTT_table <- function(data, Poly = FALSE, missing = "omit") {
 
   df$mean <- cround(apply(data, 2, mean), 3)
   df$sd <- cround(apply(data, 2, sd), 3)
-  df$Diff <- cround(apply(data, 2, mean) / max(data), 3)
+  if (min(data, na.rm = TRUE) == 0) {
+    # 최소치가 0인 경우: 정규화 공식: (mean - 0) / (max - 0)
+    df$Diff <- cround(apply(data, 2, mean, na.rm = TRUE) / (max(data, na.rm = TRUE) - 0), 3)
+  } else {
+    # 최소치가 1인 경우: 정규화 공식: (mean - 1) / (max - 1)
+    df$Diff <- cround((apply(data, 2, mean, na.rm = TRUE) - 1) / (max(data, na.rm = TRUE) - 1), 3)
+  }
+
 
   for (i in 1:ncol(data)) {
     correlation_method <- ifelse(Poly, "spearman", "pearson")
