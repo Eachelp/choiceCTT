@@ -4,14 +4,14 @@
 \alias{dist_table}
 \title{Calculate distribution of categories per item and quantile grouping}
 \usage{
-dist_table(data, categories = 1:4, cutting = 4, digit = 3)
+dist_table(data, score = NULL, cutting = 4, digit = 3, missing = "omit")
 }
 \arguments{
 \item{data}{A data frame with each column representing an item with responses.}
 
-\item{categories}{A vector of the categories to consider for frequency calculation.}
-
 \item{cutting}{The number of quantile groups to create.}
+
+\item{categories}{A vector of the categories to consider for frequency calculation.}
 }
 \value{
 A list containing distribution tables for each item and a summary.
