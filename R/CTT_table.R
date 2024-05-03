@@ -12,7 +12,7 @@
 #' However, it should be noted that Cronbach'α is not, strictly speaking, an index of reliability.
 #' And in this table can show a "Deleted alpha", The Cronbach'α that increases when one item is removed.
 #'
-#' in the R cround is
+#
 #' @export
 CTT_table <- function(data, Poly = FALSE, missing = "omit") {
 
